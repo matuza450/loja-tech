@@ -1,0 +1,20 @@
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+C:/Ruby34-x64/bin/ruby.exe extconf.rb
+creating Makefile
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-p9z1dz sitelibdir\=./.gem.20251023-704-p9z1dz clean
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-p9z1dz sitelibdir\=./.gem.20251023-704-p9z1dz
+generating debug-x64-mingw-ucrt.def
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-p9z1dz sitelibdir\=./.gem.20251023-704-p9z1dz install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20251023-704-p9z1dz/debug
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-p9z1dz sitelibdir\=./.gem.20251023-704-p9z1dz clean

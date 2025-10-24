@@ -1,0 +1,20 @@
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/erb-5.1.1/ext/erb/escape
+C:/Ruby34-x64/bin/ruby.exe extconf.rb
+checking for rb_ext_ractor_safe() in ruby.h... yes
+creating Makefile
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/erb-5.1.1/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-2dgzo4 sitelibdir\=./.gem.20251023-704-2dgzo4 clean
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/erb-5.1.1/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-2dgzo4 sitelibdir\=./.gem.20251023-704-2dgzo4
+generating escape-x64-mingw-ucrt.def
+compiling escape.c
+linking shared-object erb/escape.so
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/erb-5.1.1/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-2dgzo4 sitelibdir\=./.gem.20251023-704-2dgzo4 install
+/usr/bin/install -c -m 0755 escape.so ./.gem.20251023-704-2dgzo4/erb
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/erb-5.1.1/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-2dgzo4 sitelibdir\=./.gem.20251023-704-2dgzo4 clean

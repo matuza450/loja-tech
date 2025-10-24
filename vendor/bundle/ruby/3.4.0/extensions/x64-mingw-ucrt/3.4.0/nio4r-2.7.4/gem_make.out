@@ -1,0 +1,18 @@
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/nio4r-2.7.4/ext/nio4r
+C:/Ruby34-x64/bin/ruby.exe extconf.rb
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/nio4r-2.7.4/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-nmiag9 sitelibdir\=./.gem.20251023-704-nmiag9 clean
+make: *** Sem regra para processar o alvo 'clean' .  Pare.
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/nio4r-2.7.4/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-nmiag9 sitelibdir\=./.gem.20251023-704-nmiag9
+make: Nada a ser feito para 'all'. 
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/nio4r-2.7.4/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-nmiag9 sitelibdir\=./.gem.20251023-704-nmiag9 install
+make: Nada a ser feito para 'install'. 
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/nio4r-2.7.4/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-nmiag9 sitelibdir\=./.gem.20251023-704-nmiag9 clean
+make: *** Sem regra para processar o alvo 'clean' .  Pare.

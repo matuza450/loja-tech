@@ -1,0 +1,20 @@
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/stringio-3.1.7/ext/stringio
+C:/Ruby34-x64/bin/ruby.exe extconf.rb
+checking for rb_io_mode_t in ruby/io.h... no
+creating Makefile
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/stringio-3.1.7/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-71kpkv sitelibdir\=./.gem.20251023-704-71kpkv clean
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/stringio-3.1.7/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-71kpkv sitelibdir\=./.gem.20251023-704-71kpkv
+generating stringio-x64-mingw-ucrt.def
+compiling stringio.c
+linking shared-object stringio.so
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/stringio-3.1.7/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-71kpkv sitelibdir\=./.gem.20251023-704-71kpkv install
+/usr/bin/install -c -m 0755 stringio.so ./.gem.20251023-704-71kpkv
+
+current directory: C:/Users/mathe/OneDrive/Documentos/GitHub/loja-tech/vendor/bundle/ruby/3.4.0/gems/stringio-3.1.7/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20251023-704-71kpkv sitelibdir\=./.gem.20251023-704-71kpkv clean
