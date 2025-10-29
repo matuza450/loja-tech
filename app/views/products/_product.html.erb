@@ -2,6 +2,18 @@
   <h3><%= link_to product.name, product_path(product), class: "product-link" %></h3>
   <p class="description"><%= truncate(product.description, length: 140) %></p>
 
+  <div class="product-image">
+    <% if product.image.attached? %>
+      <% if product.image.variable? %>
+        <%= link_to image_tag(url_for(product.image.variant(resize_to_limit: [400, 300])), alt: product.name), product_path(product) %>
+      <% else %>
+        <%= link_to image_tag(url_for(product.image), alt: product.name), product_path(product) %>
+      <% end %>
+    <% else %>
+      <%= link_to image_tag("placeholder-product.svg", alt: "placeholder", size: "400x300"), product_path(product) %>
+    <% end %>
+  </div>
+
   <div class="product-meta">
     <div class="price">R$ <%= number_with_precision(product.price, precision: 2, delimiter: ",") %></div>
     <div class="stock"><%= product.stock %> em estoque</div>

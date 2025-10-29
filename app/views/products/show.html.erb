@@ -1,6 +1,17 @@
 <p class="muted"><%= notice %></p>
 
 <article class="product-show">
+  <div style="margin-bottom:1rem;">
+    <% if @product.image.attached? %>
+      <% if @product.image.variable? %>
+        <%= image_tag url_for(@product.image.variant(resize_to_limit: [900, 600])), alt: @product.name, style: "width:100%; max-width:900px; border-radius:10px;" %>
+      <% else %>
+        <%= image_tag url_for(@product.image), alt: @product.name, style: "width:100%; max-width:900px; border-radius:10px;" %>
+      <% end %>
+    <% else %>
+      <%= image_tag "placeholder-product.svg", alt: "placeholder", style: "width:100%; max-width:900px; border-radius:10px;" %>
+    <% end %>
+  </div>
   <div class="product-details">
     <h1><%= @product.name %></h1>
     <p class="muted"><%= @product.description %></p>

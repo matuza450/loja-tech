@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_product, only: %i[ show edit update destroy remove_image ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /products or /products.json
   def index
@@ -65,6 +66,12 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :price, :stock)
+      params.require(:product).permit(:name, :description, :price, :stock, images: [])
+    end
+
+    def remove_image
+      image = @product.images.find(params[:image_id])
+      image.purge
+      redirect_back(fallback_location: edit_product_path(@product), notice: 'Image was successfully removed.')
     end
 end
