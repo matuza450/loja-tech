@@ -1,27 +1,66 @@
 <p class="muted"><%= notice %></p>
 
-<article class="product-show">
-  <div style="margin-bottom:1rem;">
-    <% if @product.image.attached? %>
-      <% if @product.image.variable? %>
-        <%= image_tag url_for(@product.image.variant(resize_to_limit: [900, 600])), alt: @product.name, style: "width:100%; max-width:900px; border-radius:10px;" %>
-      <% else %>
-        <%= image_tag url_for(@product.image), alt: @product.name, style: "width:100%; max-width:900px; border-radius:10px;" %>
-      <% end %>
-    <% else %>
-      <%= image_tag "placeholder-product.svg", alt: "placeholder", style: "width:100%; max-width:900px; border-radius:10px;" %>
-    <% end %>
-  </div>
-  <div class="product-details">
-    <h1><%= @product.name %></h1>
-    <p class="muted"><%= @product.description %></p>
-    <p style="margin-top:1rem;"><span class="price">R$ <%= number_with_precision(@product.price, precision: 2, delimiter: ",") %></span></p>
-    <p class="muted">Estoque: <%= @product.stock %></p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="product-images">
+        <% if @product.images.attached? %>
+          <div class="main-image-container mb-3">
+            <%= image_tag @product.images.first.variant(resize_to_limit: [600, 400]), class: "main-image", id: "main-product-image" %>
+          </div>
+          <div class="product-thumbnails d-flex gap-2">
+            <% @product.images.each_with_index do |image, index| %>
+              <%= image_tag image.variant(resize_to_limit: [100, 100]), 
+                          class: "product-thumbnail #{index == 0 ? 'active' : ''}", 
+                          data: { 
+                            action: "click->product#switchImage",
+                            image_url: url_for(image.variant(resize_to_limit: [600, 400]))
+                          } %>
+            <% end %>
+          </div>
+        <% else %>
+          <%= image_tag "placeholder-product.svg", class: "main-image", alt: "placeholder" %>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <h1 class="mb-3"><%= @product.name %></h1>
+      <p class="lead mb-4"><%= @product.description %></p>
+      
+      <div class="mb-4">
+        <h3 class="price">R$ <%= number_with_precision(@product.price, precision: 2, delimiter: ",") %></h3>
+        <p class="text-muted">Estoque: <%= @product.stock %></p>
+      </div>
 
-    <div style="margin-top:1.25rem; display:flex; gap:.5rem; align-items:center;">
-      <%= link_to "Editar", edit_product_path(@product), class: "btn btn-ghost" %>
-      <%= link_to "Voltar", products_path, class: "btn" %>
-      <%= button_to "Excluir", @product, method: :delete, data: { confirm: "Tem certeza?" }, class: "btn btn-ghost" %>
+      <% if logged_in? %>
+        <%= button_to cart_add_item_path(product_id: @product), 
+                    class: "btn btn-primary btn-lg mb-4",
+                    data: { turbo: true } do %>
+          <i class="fas fa-shopping-cart me-2"></i> Adicionar ao Carrinho
+        <% end %>
+      <% else %>
+        <%= link_to login_path, class: "btn btn-primary btn-lg mb-4" do %>
+          <i class="fas fa-sign-in-alt me-2"></i> Login para Comprar
+        <% end %>
+      <% end %>
+
+      <div class="d-flex gap-2">
+        <% if logged_in? %>
+          <%= link_to edit_product_path(@product), class: "btn btn-outline-secondary" do %>
+            <i class="fas fa-edit me-1"></i> Editar
+          <% end %>
+          <%= button_to @product, 
+                      method: :delete, 
+                      class: "btn btn-outline-danger",
+                      data: { turbo_confirm: "Tem certeza?" } do %>
+            <i class="fas fa-trash-alt me-1"></i> Excluir
+          <% end %>
+        <% end %>
+        <%= link_to products_path, class: "btn btn-outline-primary" do %>
+          <i class="fas fa-arrow-left me-1"></i> Voltar
+        <% end %>
+      </div>
     </div>
   </div>
-</article>
+</div>

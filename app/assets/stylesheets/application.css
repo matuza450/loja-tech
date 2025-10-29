@@ -5,12 +5,13 @@
 
 /* Basic design tokens */
 :root{
-	--bg: #0f1724; /* dark blue */
-	--card: #0b1220;
-	--muted: #9aa6b2;
-	--accent: #6ee7b7; /* mint */
-	--accent-2: #60a5fa; /* blue */
-	--white: #f8fafc;
+	--bg: #ffffff; /* white background */
+	--card: #f8f9fa;
+	--muted: #6c757d;
+	--accent: #2ecc71; /* green */
+	--accent-2: #3498db; /* blue */
+	--text: #2c3e50;
+	--border: #dee2e6;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
@@ -21,8 +22,8 @@ html,body{
 body{
 	margin:0;
 	font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-	background: linear-gradient(180deg, #071024 0%, var(--bg) 100%);
-	color:var(--white);
+	background: var(--bg);
+	color: var(--text);
 	-webkit-font-smoothing:antialiased;
 	-moz-osx-font-smoothing:grayscale;
 }
@@ -34,11 +35,12 @@ body{
 }
 
 .site-header{
-	background: rgba(255,255,255,0.02);
-	border-bottom: 1px solid rgba(255,255,255,0.04);
+	background: var(--bg);
+	border-bottom: 1px solid var(--border);
 	position: sticky;
 	top:0;
 	z-index:100;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 .header-inner{
 	display:flex;
@@ -58,14 +60,17 @@ body{
 	gap:1rem;
 }
 .nav-link{
-	color:var(--white);
+	color: var(--text);
 	text-decoration:none;
 	padding:0.5rem 0.75rem;
 	border-radius:6px;
 	transition:all .15s ease;
 	background: transparent;
 }
-.nav-link:hover{ background: rgba(255,255,255,0.03); color:var(--accent-2) }
+.nav-link:hover{ 
+	background: var(--card); 
+	color:var(--accent-2);
+}
 
 .main-content{ padding: 2rem 0; }
 
@@ -93,7 +98,18 @@ body{
 
 /* Products grid */
 .products-grid{ display:grid; grid-template-columns: repeat(auto-fill,minmax(250px,1fr)); gap:1rem; }
-.product-card{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:1rem; border-radius:10px; border:1px solid rgba(255,255,255,0.03) }
+.product-card{ 
+	background: var(--bg);
+	padding: 1rem;
+	border-radius: 10px;
+	border: 1px solid var(--border);
+	box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 .product-card h3{ margin:0 0 0.5rem 0 }
 .product-card p.description{ color:var(--muted); font-size:0.95rem }
 .product-meta{ display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem }
