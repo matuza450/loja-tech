@@ -36,17 +36,18 @@
       </div>
     </header>
     
-    <% if notice %>
-      <div class="alert alert-success" role="alert">
-        <%= notice %>
-      </div>
-    <% end %>
-    
-    <% if alert %>
-      <div class="alert alert-danger" role="alert">
-        <%= alert %>
-      </div>
-    <% end %>
+    <div id="notice">
+      <% if notice %>
+        <div class="alert alert-success" role="alert">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger" role="alert">
+          <%= alert %>
+        </div>
+      <% end %>
+    </div>
 
     <main class="container main-content">
       <%= yield %>

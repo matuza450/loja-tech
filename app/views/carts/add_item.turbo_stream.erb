@@ -9,3 +9,17 @@
     <div class="alert alert-success" role="alert">Item adicionado ao carrinho.</div>
   </template>
 </turbo-stream>
+
+<turbo-stream action="append" target="body">
+  <template>
+    <script>
+      (function(){
+        var el = document.getElementById('cartOffcanvas');
+        if (el) {
+          var bs = new bootstrap.Offcanvas(el);
+          bs.show();
+        }
+      })();
+    </script>
+  </template>
+</turbo-stream>

@@ -1,13 +1,13 @@
 <!-- Cart Floating Button -->
 <div id="cart-button" class="position-fixed bottom-0 end-0 m-4">
-  <%= link_to cart_path, class: "btn btn-primary rounded-circle p-3 shadow" do %>
+  <button class="btn btn-primary rounded-circle p-3 shadow cart-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas" aria-label="Open cart">
     <i class="fas fa-shopping-cart"></i>
     <% if @current_cart&.cart_items&.any? %>
       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
         <%= @current_cart.cart_items.sum(&:quantity) %>
       </span>
     <% end %>
-  <% end %>
+  </button>
 </div>
 
 <!-- Cart Offcanvas -->
@@ -37,7 +37,7 @@
                               method: :delete,
                               class: "btn btn-sm btn-danger",
                               form: { data: { turbo_frame: "cart_item_#{item.id}" } } do %>
-                    Remove
+                    <i class="fas fa-trash-alt"></i> Remove
                   <% end %>
                 </div>
               </div>

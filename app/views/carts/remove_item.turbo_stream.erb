@@ -9,3 +9,18 @@
     <div class="alert alert-info" role="alert">Item removido do carrinho.</div>
   </template>
 </turbo-stream>
+
+<turbo-stream action="append" target="body">
+  <template>
+    <script>
+      (function(){
+        // keep the offcanvas visible if items remain
+        var el = document.getElementById('cartOffcanvas');
+        if (el) {
+          var bs = new bootstrap.Offcanvas(el);
+          bs.show();
+        }
+      })();
+    </script>
+  </template>
+</turbo-stream>
