@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     delete 'remove_image/:image_id', to: 'products#remove_image', as: :remove_image, on: :member
   end
   get "pages/home"
+  get "privacy", to: "pages#privacy", as: :privacy
   
   # Health check and PWA routes
   get "up" => "rails/health#show", as: :rails_health_check
