@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get "reviews/create"
+  get "reviews/destroy"
+  get "likes/toggle"
+  get "comments/create"
+  get "comments/destroy"
   root "pages#home"
   
   # Authentication routes
@@ -14,7 +19,14 @@ Rails.application.routes.draw do
     delete 'remove_item/:item_id', to: 'carts#remove_item', as: :remove_item
   end
   
-  resources :products
+  resources :products do
+    resources :comments, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
+    resources :reviews, only: [:create, :destroy]
+    post 'toggle_like', to: 'likes#toggle', on: :member
+    # Route to remove a specific attached image from a product
+    delete 'remove_image/:image_id', to: 'products#remove_image', as: :remove_image, on: :member
+  end
   get "pages/home"
   
   # Health check and PWA routes

@@ -3,6 +3,15 @@ class Product < ApplicationRecord
   validates :images, presence: true
   validate :image_type
   
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+
+  def average_rating
+    return 0 if reviews.empty?
+    reviews.average(:rating).to_f.round(2)
+  end
+  
   private
   
   def image_type

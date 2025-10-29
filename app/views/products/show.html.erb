@@ -33,8 +33,43 @@
         <p class="text-muted">Estoque: <%= @product.stock %></p>
       </div>
 
+      <div class="mb-3 d-flex align-items-center gap-3">
+        <!-- Average rating -->
+        <div>
+          <strong>Nota:</strong>
+          <span><%= @product.average_rating %> / 5</span>
+        </div>
+
+        <!-- Like button -->
+        <div>
+          <% if logged_in? %>
+            <% user_like = @product.likes.find_by(user: current_user) %>
+            <% if user_like %>
+              <%= button_to product_like_path(@product, user_like), method: :delete, class: "btn btn-outline-danger btn-sm" do %>
+                <i class="fas fa-heart"></i> <%= @product.likes.count %>
+              <% end %>
+            <% else %>
+              <%= button_to product_likes_path(@product), method: :post, class: "btn btn-outline-primary btn-sm" do %>
+                <i class="far fa-heart"></i> <%= @product.likes.count %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= link_to login_path, class: "btn btn-outline-secondary btn-sm" do %>
+              <i class="far fa-heart"></i> <%= @product.likes.count %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <!-- Buy button (placeholder) -->
+        <div>
+          <%= link_to '#', class: "btn btn-success btn-sm" do %>
+            <i class="fas fa-credit-card me-1"></i> Comprar
+          <% end %>
+        </div>
+      </div>
+
       <% if logged_in? %>
-        <%= button_to cart_add_item_path(product_id: @product), 
+        <%= button_to add_item_cart_path(product_id: @product), 
                     class: "btn btn-primary btn-lg mb-4",
                     data: { turbo: true } do %>
           <i class="fas fa-shopping-cart me-2"></i> Adicionar ao Carrinho
@@ -61,6 +96,15 @@
           <i class="fas fa-arrow-left me-1"></i> Voltar
         <% end %>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8">
+      <%= render 'products/reviews', product: @product %>
+      <%= render 'products/comments', product: @product %>
     </div>
   </div>
 </div>

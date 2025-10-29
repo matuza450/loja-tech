@@ -22,10 +22,14 @@ class ProductsController < ApplicationController
 
   # POST /products or /products.json
   def create
+    # Build without images first; we'll attach files explicitly to avoid param issues
+    images = product_params.delete(:images) if product_params[:images]
     @product = Product.new(product_params)
 
     respond_to do |format|
       if @product.save
+        # Attach any uploaded images explicitly
+        @product.images.attach(images) if images.present?
         format.html { redirect_to @product, notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
       else
@@ -38,7 +42,10 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1 or /products/1.json
   def update
     respond_to do |format|
+      # If new images uploaded, attach them explicitly instead of relying solely on update
+      images = product_params.delete(:images) if product_params[:images]
       if @product.update(product_params)
+        @product.images.attach(images) if images.present?
         format.html { redirect_to @product, notice: "Product was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @product }
       else

@@ -33,7 +33,7 @@
                     Quantity: <%= item.quantity %><br>
                     Price: $<%= number_with_precision(item.product.price * item.quantity, precision: 2) %>
                   </p>
-                  <%= button_to cart_remove_item_path(item_id: item.id), 
+                  <%= button_to remove_item_cart_path(item_id: item.id), 
                               method: :delete,
                               class: "btn btn-sm btn-danger",
                               form: { data: { turbo_frame: "cart_item_#{item.id}" } } do %>
