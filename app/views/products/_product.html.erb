@@ -2,6 +2,7 @@
   <h3><%= link_to product.name, product_path(product), class: "product-link" %></h3>
   <p class="description"><%= truncate(product.description, length: 140) %></p>
 
+<<<<<<< HEAD
   <div class="product-image">
     <% if product.images.attached? %>
       <% image = product.images.first %>
@@ -15,6 +16,8 @@
     <% end %>
   </div>
 
+=======
+>>>>>>> parent of df2f121 (UPDATE)
   <div class="product-meta">
     <div class="price">R$ <%= number_with_precision(product.price, precision: 2, delimiter: ",") %></div>
     <div class="stock"><%= product.stock %> em estoque</div>

@@ -1,5 +1,6 @@
 <p class="muted"><%= notice %></p>
 
+<<<<<<< HEAD
 <div class="container mt-4">
   <div class="row">
     <div class="col-md-6">
@@ -32,6 +33,14 @@
         <h3 class="price">R$ <%= number_with_precision(@product.price, precision: 2, delimiter: ",") %></h3>
         <p class="text-muted">Estoque: <%= @product.stock %></p>
       </div>
+=======
+<article class="product-show">
+  <div class="product-details">
+    <h1><%= @product.name %></h1>
+    <p class="muted"><%= @product.description %></p>
+    <p style="margin-top:1rem;"><span class="price">R$ <%= number_with_precision(@product.price, precision: 2, delimiter: ",") %></span></p>
+    <p class="muted">Estoque: <%= @product.stock %></p>
+>>>>>>> parent of df2f121 (UPDATE)
 
       <div class="mb-3 d-flex align-items-center gap-3">
         <!-- Average rating -->
