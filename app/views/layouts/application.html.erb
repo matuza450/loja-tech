@@ -53,7 +53,9 @@
     </main>
 
     <% if logged_in? %>
-      <%= render 'shared/cart' %>
+      <div id="cart-container">
+        <%= render 'shared/cart' %>
+      </div>
     <% end %>
 
     <footer class="site-footer">
