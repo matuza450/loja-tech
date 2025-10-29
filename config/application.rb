@@ -23,5 +23,10 @@ module LojaTech
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    active_record_encryption:
+  primary_key: YDCPsgNa3gy6h3IYcfhHPFieO5tk3OrX
+  deterministic_key: XEwPP4jPAj5U1CVcg7oS60rJrfC9NrNN        
+  key_derivation_salt: Imx2iZY3z88KNKU3xCglVcp73rstenYV 
   end
 end
