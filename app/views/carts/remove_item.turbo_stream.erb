@@ -1,0 +1,11 @@
+<turbo-stream action="replace" target="cart-container">
+  <template>
+    <%= render 'shared/cart' %>
+  </template>
+</turbo-stream>
+
+<turbo-stream action="update" target="notice">
+  <template>
+    <div class="alert alert-info" role="alert">Item removido do carrinho.</div>
+  </template>
+</turbo-stream>
