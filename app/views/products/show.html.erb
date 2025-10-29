@@ -1,0 +1,16 @@
+<p class="muted"><%= notice %></p>
+
+<article class="product-show">
+  <div class="product-details">
+    <h1><%= @product.name %></h1>
+    <p class="muted"><%= @product.description %></p>
+    <p style="margin-top:1rem;"><span class="price">R$ <%= number_with_precision(@product.price, precision: 2, delimiter: ",") %></span></p>
+    <p class="muted">Estoque: <%= @product.stock %></p>
+
+    <div style="margin-top:1.25rem; display:flex; gap:.5rem; align-items:center;">
+      <%= link_to "Editar", edit_product_path(@product), class: "btn btn-ghost" %>
+      <%= link_to "Voltar", products_path, class: "btn" %>
+      <%= button_to "Excluir", @product, method: :delete, data: { confirm: "Tem certeza?" }, class: "btn btn-ghost" %>
+    </div>
+  </div>
+</article>

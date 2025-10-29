@@ -1,15 +1,114 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  */
+
+/* Basic design tokens */
+:root{
+	--bg: #0f1724; /* dark blue */
+	--card: #0b1220;
+	--muted: #9aa6b2;
+	--accent: #6ee7b7; /* mint */
+	--accent-2: #60a5fa; /* blue */
+	--white: #f8fafc;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+html,body{
+	height:100%;
+}
+body{
+	margin:0;
+	font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	background: linear-gradient(180deg, #071024 0%, var(--bg) 100%);
+	color:var(--white);
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+
+.container{
+	width: min(1100px, 96%);
+	margin: 0 auto;
+	padding: 1rem 0;
+}
+
+.site-header{
+	background: rgba(255,255,255,0.02);
+	border-bottom: 1px solid rgba(255,255,255,0.04);
+	position: sticky;
+	top:0;
+	z-index:100;
+}
+.header-inner{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	padding: 0.75rem 0;
+}
+.brand{
+	font-weight:700;
+	letter-spacing:1px;
+	color:var(--accent);
+	text-decoration:none;
+	font-size:1.25rem;
+}
+.main-nav{
+	display:flex;
+	gap:1rem;
+}
+.nav-link{
+	color:var(--white);
+	text-decoration:none;
+	padding:0.5rem 0.75rem;
+	border-radius:6px;
+	transition:all .15s ease;
+	background: transparent;
+}
+.nav-link:hover{ background: rgba(255,255,255,0.03); color:var(--accent-2) }
+
+.main-content{ padding: 2rem 0; }
+
+.site-footer{
+	color:var(--muted);
+	padding: 1.5rem 0;
+	text-align:center;
+	font-size:0.9rem;
+}
+
+/* Hero */
+.hero{
+	background: linear-gradient(90deg, rgba(96,165,250,0.06), rgba(110,231,183,0.03));
+	border-radius: 12px;
+	padding: 2rem;
+	margin-bottom: 1.5rem;
+}
+.hero h1{ margin:0 0 0.5rem 0; font-size:2.2rem; color:var(--white) }
+.hero p{ margin:0 0 1rem 0; color:var(--muted) }
+
+/* Buttons */
+.btn{ display:inline-block; text-decoration:none; padding:0.5rem 0.85rem; border-radius:8px; font-weight:600 }
+.btn-primary{ background: linear-gradient(90deg,var(--accent),var(--accent-2)); color:#04202b }
+.btn-ghost{ background:transparent; color:var(--white); border:1px solid rgba(255,255,255,0.05) }
+
+/* Products grid */
+.products-grid{ display:grid; grid-template-columns: repeat(auto-fill,minmax(250px,1fr)); gap:1rem; }
+.product-card{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:1rem; border-radius:10px; border:1px solid rgba(255,255,255,0.03) }
+.product-card h3{ margin:0 0 0.5rem 0 }
+.product-card p.description{ color:var(--muted); font-size:0.95rem }
+.product-meta{ display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem }
+.price{ font-weight:700; color:var(--accent-2) }
+.stock{ color:var(--muted); font-size:0.9rem }
+
+/* Product show tweaks */
+.product-show{ display:flex; gap:2rem; align-items:flex-start }
+.product-details{ max-width:760px }
+
+/* small helpers */
+.muted{ color:var(--muted) }
+
+@media (max-width:600px){
+	.header-inner{ gap:0.5rem }
+	.brand{ font-size:1rem }
+	.hero h1{ font-size:1.6rem }
+}

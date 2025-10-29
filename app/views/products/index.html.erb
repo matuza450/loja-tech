@@ -1,0 +1,15 @@
+<% content_for :title, "Products" %>
+
+<p class="muted"><%= notice %></p>
+
+<header class="page-header">
+  <h1>Produtos</h1>
+  <p class="muted">Confira nossos produtos tecnológicos mais recentes.</p>
+  <p><%= link_to "Novo Produto", new_product_path, class: "btn btn-ghost" %></p>
+</header>
+
+<section id="products" class="products-grid">
+  <% @products.each do |product| %>
+    <%= render product %>
+  <% end %>
+</section>

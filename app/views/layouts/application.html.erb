@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Loja Tech" %></title>
+  <title><%= content_for(:title) || "Overbyte" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
@@ -17,6 +17,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="site-header">
+      <div class="container header-inner">
+        <%= link_to "OVERBYTE", root_path, class: "brand" %>
+        <nav class="main-nav">
+          <%= link_to "Produtos", products_path, class: "nav-link" %>
+          <%= link_to "Novo Produto", new_product_path, class: "nav-link" %>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container main-content">
+      <%= yield %>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">&copy; <%= Time.now.year %> Overbyte</div>
+    </footer>
   </body>
 </html>

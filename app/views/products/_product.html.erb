@@ -1,0 +1,14 @@
+<article id="<%= dom_id product %>" class="product-card">
+  <h3><%= link_to product.name, product_path(product), class: "product-link" %></h3>
+  <p class="description"><%= truncate(product.description, length: 140) %></p>
+
+  <div class="product-meta">
+    <div class="price">R$ <%= number_with_precision(product.price, precision: 2, delimiter: ",") %></div>
+    <div class="stock"><%= product.stock %> em estoque</div>
+  </div>
+
+  <div style="margin-top:.75rem; display:flex; gap:.5rem;">
+    <%= link_to "Ver", product_path(product), class: "btn btn-ghost" %>
+    <%= link_to "Editar", edit_product_path(product), class: "btn btn-ghost" %>
+  </div>
+</article>
