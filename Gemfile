@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gem 'dotenv-rails', require: 'dotenv/load'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.2", ">= 7.2.2.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
@@ -44,6 +46,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
+
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

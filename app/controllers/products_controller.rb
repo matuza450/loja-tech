@@ -72,6 +72,7 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
+<<<<<<< HEAD
 
       params.require(:product).permit(:name, :description, :price, :stock, images: [])
 
@@ -81,5 +82,8 @@ class ProductsController < ApplicationController
       image = @product.images.find(params[:image_id])
       image.purge
       redirect_back(fallback_location: edit_product_path(@product), notice: 'Image was successfully removed.')
+=======
+      params.require(:product).permit(:name, :description, :price, :stock)
+>>>>>>> parent of df2f121 (UPDATE)
     end
 end

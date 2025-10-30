@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
 <<<<<<< HEAD
+<<<<<<< HEAD
   has_many_attached :images
   validates :images, presence: true
   validate :image_type
@@ -22,6 +23,8 @@ class Product < ApplicationRecord
       end
     end
   end
+=======
+>>>>>>> parent of df2f121 (UPDATE)
 =======
 >>>>>>> parent of df2f121 (UPDATE)
 end

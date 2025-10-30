@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 <<<<<<< HEAD
+<<<<<<< HEAD
   get "reviews/create"
   get "reviews/destroy"
   get "likes/toggle"
@@ -35,10 +36,17 @@ Rails.application.routes.draw do
 =======
   resources :products
   get "pages/home"
+=======
+  resources :products
+  get "pages/home"
+>>>>>>> parent of df2f121 (UPDATE)
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
+<<<<<<< HEAD
+>>>>>>> parent of df2f121 (UPDATE)
+=======
 >>>>>>> parent of df2f121 (UPDATE)
   get "up" => "rails/health#show", as: :rails_health_check
 
