@@ -11,8 +11,13 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema[7.2].define(version: 2025_10_29_025254) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+=======
+ActiveRecord::Schema[7.2].define(version: 2025_10_29_015326) do
+  create_table "active_storage_attachments", force: :cascade do |t|
+>>>>>>> parent of aaaaa4e (UPDATE)
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -40,6 +45,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_29_025254) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+<<<<<<< HEAD
   create_table "cart_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "cart_id", null: false
     t.bigint "product_id", null: false
@@ -79,6 +85,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_29_025254) do
   create_table "products", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
 =======
 ActiveRecord::Schema[7.2].define(version: 2025_10_29_012355) do
+=======
+>>>>>>> parent of aaaaa4e (UPDATE)
   create_table "products", force: :cascade do |t|
 >>>>>>> parent of df2f121 (UPDATE)
     t.string "name"
@@ -90,6 +98,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_29_012355) do
   end
 <<<<<<< HEAD
 
+<<<<<<< HEAD
   create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "product_id", null: false
@@ -124,4 +133,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_29_012355) do
   add_foreign_key "reviews", "users"
 =======
 >>>>>>> parent of df2f121 (UPDATE)
+=======
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+>>>>>>> parent of aaaaa4e (UPDATE)
 end

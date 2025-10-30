@@ -1,6 +1,7 @@
 <p class="muted"><%= notice %></p>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div class="container mt-4">
   <div class="row">
     <div class="col-md-6">
@@ -83,30 +84,33 @@
                     data: { turbo: true } do %>
           <i class="fas fa-shopping-cart me-2"></i> Adicionar ao Carrinho
         <% end %>
+=======
+<article class="product-show">
+  <div style="margin-bottom:1rem;">
+    <% if @product.image.attached? %>
+      <% if @product.image.variable? %>
+        <%= image_tag url_for(@product.image.variant(resize_to_limit: [900, 600])), alt: @product.name, style: "width:100%; max-width:900px; border-radius:10px;" %>
+>>>>>>> parent of aaaaa4e (UPDATE)
       <% else %>
-        <%= link_to login_path, class: "btn btn-primary btn-lg mb-4" do %>
-          <i class="fas fa-sign-in-alt me-2"></i> Login para Comprar
-        <% end %>
+        <%= image_tag url_for(@product.image), alt: @product.name, style: "width:100%; max-width:900px; border-radius:10px;" %>
       <% end %>
+    <% else %>
+      <%= image_tag "placeholder-product.svg", alt: "placeholder", style: "width:100%; max-width:900px; border-radius:10px;" %>
+    <% end %>
+  </div>
+  <div class="product-details">
+    <h1><%= @product.name %></h1>
+    <p class="muted"><%= @product.description %></p>
+    <p style="margin-top:1rem;"><span class="price">R$ <%= number_with_precision(@product.price, precision: 2, delimiter: ",") %></span></p>
+    <p class="muted">Estoque: <%= @product.stock %></p>
 
-      <div class="d-flex gap-2">
-        <% if logged_in? %>
-          <%= link_to edit_product_path(@product), class: "btn btn-outline-secondary" do %>
-            <i class="fas fa-edit me-1"></i> Editar
-          <% end %>
-          <%= button_to @product, 
-                      method: :delete, 
-                      class: "btn btn-outline-danger",
-                      data: { turbo_confirm: "Tem certeza?" } do %>
-            <i class="fas fa-trash-alt me-1"></i> Excluir
-          <% end %>
-        <% end %>
-        <%= link_to products_path, class: "btn btn-outline-primary" do %>
-          <i class="fas fa-arrow-left me-1"></i> Voltar
-        <% end %>
-      </div>
+    <div style="margin-top:1.25rem; display:flex; gap:.5rem; align-items:center;">
+      <%= link_to "Editar", edit_product_path(@product), class: "btn btn-ghost" %>
+      <%= link_to "Voltar", products_path, class: "btn" %>
+      <%= button_to "Excluir", @product, method: :delete, data: { confirm: "Tem certeza?" }, class: "btn btn-ghost" %>
     </div>
   </div>
+<<<<<<< HEAD
 </div>
 
 <div class="container mt-4">
@@ -117,3 +121,6 @@
     </div>
   </div>
 </div>
+=======
+</article>
+>>>>>>> parent of aaaaa4e (UPDATE)

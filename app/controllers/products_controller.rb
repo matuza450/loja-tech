@@ -64,13 +64,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # Public action to remove an image from a product (must be public for routing)
-  def remove_image
-    image = @product.images.find(params[:image_id])
-    image.purge
-    redirect_back(fallback_location: edit_product_path(@product), notice: 'Image was successfully removed.')
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -82,5 +75,11 @@ class ProductsController < ApplicationController
 
       params.require(:product).permit(:name, :description, :price, :stock, images: [])
 
+    end
+
+    def remove_image
+      image = @product.images.find(params[:image_id])
+      image.purge
+      redirect_back(fallback_location: edit_product_path(@product), notice: 'Image was successfully removed.')
     end
 end
